@@ -1,7 +1,7 @@
-# The Christmas Village
+# Santa's Village
 ## Grade 10 Python / Processing Project
 
-An interactive Christmas-themed game I built as an early high-school Python project using **Python Mode for Processing**.
+**Santa's Village** is an interactive Christmas-themed game I built as an early high-school Python project using **Python Mode for Processing**.
 
 The project is structured around a small Christmas village that acts as the central hub. From there, the player can explore different scenes, interact with objects, decorate a Christmas tree, play a snowman target minigame, track a high score, and move between a set of menu and story-style screens.
 
@@ -10,8 +10,38 @@ This repository preserves the **original source code and project assets** rather
 By: **Christopher Lee**
 
 <p align="center">
-  <img src="Final_Coding_Project_Revised/data/pixil-frame-0.png" alt="The Christmas Village main menu" width="900">
+  <img src="Final_Coding_Project_Revised/data/pixil-frame-0.png" alt="Santa's Village main menu" width="900">
 </p>
+
+---
+
+## Play Santa's Village
+
+A self-contained Windows build is available from the latest GitHub release:
+
+**[Download the latest Windows build](https://github.com/Chris11011011/Santas-Village-GR10-Python-Project/releases/latest/download/Santas-Village-Windows-x64-Win11-ARM64.zip)**
+
+To try the project as a playable demo:
+
+1. Download the latest release ZIP.
+2. Extract the **entire** ZIP.
+3. Run `Santas_Village.exe`.
+4. Keep the `jre`, `libraries`, and `runtime` folders beside the executable.
+
+Processing, Python Mode, Java, and Minim do **not** need to be installed separately for the packaged build.
+
+### Current build compatibility
+
+| Platform | Compatibility |
+| --- | --- |
+| Windows 10/11 x64 (Intel/AMD) | Supported |
+| Windows 11 ARM64 | Supported through Windows' built-in x64 emulation; tested on ARM64 |
+| Native ARM64 | Not native; current release is an x64 build |
+| Windows 32-bit | Not supported by this build |
+| macOS | Not supported by this build |
+| Linux | Not supported by this build |
+
+> The executable is unsigned, so Windows SmartScreen may show an **Unknown publisher** warning on some systems.
 
 ---
 
@@ -22,7 +52,7 @@ The project starts by asking for a player name before moving into the main menu 
 `Username -> Main Menu -> Village -> House / Tree / Snowman -> Scores / Exit`
 
 <p align="center">
-  <img src="Final_Coding_Project_Revised/data/villageScreen.png" alt="Christmas Village hub" width="850">
+  <img src="Final_Coding_Project_Revised/data/villageScreen.png" alt="Santa's Village hub" width="850">
 </p>
 
 Most of the experience is intentionally simple: click-based interactions, small animations, persistent scene state, music and sound effects, and a few short activities built into one Processing sketch.
@@ -64,7 +94,7 @@ At a high level:
 - **Simple animation** is handled by continuously changing sprite coordinates and reversing movement when an object reaches a boundary.
 - **Audio** is handled with the Processing **Minim** library, with separate music and sound effects for different scenes.
 
-The code is very much representative of how I approached programming at the time: one large file, lots of shared state, and direct coordinate-based logic. I have intentionally kept that structure intact rather than refactoring the original project.
+The code is representative of how I approached programming at the time: one large file, lots of shared state, and direct coordinate-based logic. I have intentionally kept that structure intact rather than refactoring the original project.
 
 ---
 
@@ -113,8 +143,11 @@ The [`data/`](Final_Coding_Project_Revised/data) folder contains the original as
 ## Repository Structure
 
 ```text
-The-Christmas-Village-GR10-Python-Project/
+Santas-Village-GR10-Python-Project/
 ├── README.md
+├── .github/
+│   └── workflows/
+│       └── build-portable-windows-test.yml
 └── Final_Coding_Project_Revised/
     ├── Final_Coding_Project_Revised.pyde
     ├── Final_Coding_Project_Revised.py
@@ -133,10 +166,12 @@ The-Christmas-Village-GR10-Python-Project/
 
 This was built as a **Processing Python Mode** project rather than a normal standalone Python application.
 
-To run it, you will need a compatible Processing installation with:
+To run the original source directly, you will need a compatible Processing installation with:
 
 1. **Python Mode**
 2. The **Minim** audio library
+
+A working reconstruction has been verified with **Processing 3.5.4**, **Python Mode for Processing 3**, and **Minim 2.2.2**.
 
 Then open:
 
@@ -144,7 +179,7 @@ Then open:
 
 and run the sketch from Processing.
 
-The exact Processing version used for the original project was not preserved.
+The exact Processing version originally used for the project was not preserved, so the setup above is a verified compatibility reconstruction rather than a claim about the original environment.
 
 ---
 
