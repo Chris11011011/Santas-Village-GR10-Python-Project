@@ -1,11 +1,11 @@
 # Santa's Village
-## Grade 10 Python / Processing Project
+## Grade 10 Python / Processing Game
 
-**Santa's Village** is an interactive Christmas-themed game I built as an early high-school Python project using **Python Mode for Processing**.
+An interactive Christmas-themed game I built for my Grade 10 Computer Science final project in 2020 using **Python Mode for Processing**.
 
-The project is structured around a small Christmas village that acts as the central hub. From there, the player can explore different scenes, interact with objects, decorate a Christmas tree, play a snowman target minigame, track a high score, and move between a set of menu and story-style screens.
+The player explores a small Christmas village that acts as the central hub, with different scenes and activities including house interactions, Christmas tree decorating, a snowman target minigame, score tracking, simple animations, music, and sound effects.
 
-This repository preserves the **original source code and project assets** rather than rewriting the project with what I know now.
+This repository preserves the original project as it was submitted, including the complete source code and original image/audio assets.
 
 By: **Christopher Lee**
 
