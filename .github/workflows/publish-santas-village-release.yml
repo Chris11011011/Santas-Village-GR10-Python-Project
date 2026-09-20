@@ -16,22 +16,44 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Wait for packaged build
+      - name: Download approved test build
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh run watch 35541748855 --repo "${{ github.repository }}" --exit-status
-
-      - name: Download packaged build
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p release-asset
-          gh run download 35541748855 \
+          mkdir -p downloaded package release-asset
+          gh run download 35541163695 \
             --repo "${{ github.repository }}" \
-            --name "Santas-Village-Windows-x64-Win11-ARM64" \
-            --dir release-asset
-          ls -lah release-asset
+            --name "Santas-Village-Windows-x64-Win11-ARM64-Test" \
+            --dir downloaded
+          unzip -q "downloaded/Santas-Village-Windows-x64-Win11-ARM64-Test.zip" -d package
+
+      - name: Finalize release labeling
+        run: |
+          cat > "package/README - How to Play.txt" <<'EOF'
+          Santa's Village
+          Portable Windows build
+
+          HOW TO PLAY
+          1. Extract the entire ZIP file.
+          2. Double-click Santas_Village.exe.
+          3. Keep the jre, libraries, and runtime folders beside the EXE.
+
+          No separate installation is required:
+          - Processing.py / Jython runtime is bundled.
+          - Java 8 x64 is bundled.
+          - Minim 2.2.2 is bundled.
+          - All original game assets are bundled.
+
+          COMPATIBILITY
+          - Windows 10/11 x64 (Intel/AMD)
+          - Windows 11 ARM64 via built-in x64 application emulation (tested)
+          - This is an x64 build, not a native ARM64 build
+          - 32-bit Windows, macOS, and Linux are not supported by this package
+
+          Original project by Christopher Lee.
+          EOF
+          cd package
+          zip -qr "../release-asset/Santas-Village-Windows-x64-Win11-ARM64.zip" .
 
       - name: Publish v1.0.0
         env:
