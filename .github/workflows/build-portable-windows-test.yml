@@ -1,4 +1,4 @@
-name: Build portable Windows test package
+name: Build portable Windows game
 
 on:
   push:
@@ -252,7 +252,7 @@ jobs:
 
           $readme = @'
           The Christmas Village / Santa's Village
-          Portable Windows test build
+          Portable Windows build
 
           HOW TO PLAY
           1. Extract the entire ZIP file.
@@ -267,11 +267,9 @@ jobs:
 
           COMPATIBILITY
           - Windows 10/11 x64 (Intel/AMD)
-          - Windows 11 ARM64 via built-in x64 application emulation
+          - Windows 11 ARM64 via built-in x64 application emulation (tested)
           - This is an x64 build, not a native ARM64 build
           - 32-bit Windows, macOS, and Linux are not supported by this package
-
-          This is a TEST BUILD and has not been published as a GitHub Release yet.
 
           Original project by Christopher Lee.
           '@
@@ -324,15 +322,15 @@ jobs:
           Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
           Write-Host "Runtime smoke test passed."
 
-          $zipOut = Join-Path $repoRoot "Santas-Village-Windows-x64-Win11-ARM64-Test.zip"
+          $zipOut = Join-Path $repoRoot "Santas-Village-Windows-x64-Win11-ARM64.zip"
           Compress-Archive -Path (Join-Path $packageRoot "*") -DestinationPath $zipOut -CompressionLevel Optimal -Force
           Write-Host "Created: $zipOut"
           Write-Host "ZIP size: $((Get-Item $zipOut).Length) bytes"
 
-      - name: Upload test package
+      - name: Upload portable game
         uses: actions/upload-artifact@v4
         with:
-          name: Santas-Village-Windows-x64-Win11-ARM64-Test
-          path: Santas-Village-Windows-x64-Win11-ARM64-Test.zip
+          name: Santas-Village-Windows-x64-Win11-ARM64
+          path: Santas-Village-Windows-x64-Win11-ARM64.zip
           if-no-files-found: error
           compression-level: 0
