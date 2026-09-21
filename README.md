@@ -1,7 +1,7 @@
 # Santa's Village
 ## Grade 10 Python / Processing Game
 
-An interactive Christmas-themed game I built for my Grade 10 Computer Science final project in 2020 using **Python Mode for Processing**.
+An interactive Christmas-themed game I built for my Grade 10 Computer Science final project in 2021 using **Python Mode for Processing**.
 
 The player explores a small Christmas village that acts as the central hub, with different scenes and activities including house interactions, Christmas tree decorating, a snowman target minigame, score tracking, simple animations, music, and sound effects.
 
